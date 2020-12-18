@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 2020_12_16_002801) do
     t.string "genre"
     t.string "developer"
     t.string "age"
-    t.datetime "released_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

@@ -5,7 +5,6 @@ class CreateGames < ActiveRecord::Migration[6.0]
       t.string :genre
       t.string :developer
       t.string :age
-      t.datetime :released_date
 
       t.timestamps
     end
