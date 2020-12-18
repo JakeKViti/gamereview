@@ -28,11 +28,11 @@ class GamesController < ApplicationController
     
       private
         def game_params
-          params.require(:review).permit(
+          params.require(:game).permit(
             :title,
             :genre,
             :developer,
-            :age
+            :age,
             :released_date
          )
     end
