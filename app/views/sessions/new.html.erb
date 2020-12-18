@@ -1,5 +1,6 @@
 <h1>Sessions New</h1>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <input name="name" type="text" id="name">
+  <input name="name" type="text" id="name"> </br>
+  <input name="password" type="password" id="password"> </br>
   <input type="submit" value='login'>
 <% end %>

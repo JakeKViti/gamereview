@@ -1,12 +1,16 @@
 class SessionsController < ApplicationController
     def new
+        @user = User.new
     end
   
     def create
-      return redirect_to(controller: 'sessions',
-                         action: 'new') if !params[:name] || params[:name].empty?
-      session[:name] = params[:name]
-      redirect_to controller: 'users', action: 'index'
+        @user = User.find_by(name: params[:name])
+        if @user&& @user.authenticate(params[:password])
+            session[:name] = params[:name]
+            redirect_to controller: 'users', action: 'index'
+        else
+            render 'new'
+        end
     end
   
     def destroy

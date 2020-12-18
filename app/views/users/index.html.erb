@@ -1,2 +1,4 @@
 <h1> User's Index </h1>
-<%= @users.name %>
+<% @users.each do |user| %>
+<%= user.name %>
+<% end %>
