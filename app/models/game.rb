@@ -6,5 +6,4 @@ class Game < ApplicationRecord
     validates :genre, presence: true
     validates :developer, presence: true
     validates :age, presence: true
-    validates :released_date, presence: true
 end
