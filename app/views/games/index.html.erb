@@ -1,1 +1,9 @@
 <h1>Games Index</h1>
+<% @games.each do |game| %>
+<%= game.title %> </br>
+<%= game.genre %> </br>
+<%= game.developer %> </br>
+<%= game.age %> </br>
+<% end %>
+
+<%= link_to 'Users Index', users_path %>
