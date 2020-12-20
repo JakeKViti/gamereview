@@ -1,12 +1,15 @@
-<%= form_tag users_path do %>
-  <label>Name:</label><br>
-  <%= text_field_tag :name %><br>
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <br>
+  <%= f.text_field :name%><br>
 
-  <label>Email:</label><br>
-  <%= text_field_tag :email %><br>
+  <%= f.label :email %>
+  <br>
+  <%= f.text_field :email%><br>
 
-  <label>Password:</label><br>
-  <%= text_field_tag :password %><br>
+  <%= f.label :password %>
+   <br>
+   <%= f.password_field :password%><br>
 
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
