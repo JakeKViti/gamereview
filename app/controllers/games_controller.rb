@@ -23,7 +23,7 @@ class GamesController < ApplicationController
       def update
         game = Game.find_by(id: params[:id])
         game.update(game_params)
-        redirect_to game_path(review)
+        redirect_to game_path(game)
       end
     
       private
