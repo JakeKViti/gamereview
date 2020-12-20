@@ -1,0 +1,21 @@
+<%= form_for @game do |f| %>
+  <%= f.label :title %>
+  <br>
+  <%= f.text_field :title%><br>
+
+  <%= f.label :genre %>
+  <br>
+  <%= f.text_field :genre%><br>
+
+  <%= f.label :developer %>
+   <br>
+   <%= f.text_field :developer%><br>
+
+   <%= f.label :age, "Age Rating" %>
+   <br>
+   <%= f.text_field :age%><br>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <%= submit_tag "Create Game" %>
+<% end %>
