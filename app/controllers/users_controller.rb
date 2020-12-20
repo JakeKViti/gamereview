@@ -22,9 +22,11 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(
+        binding.pry
+        params.require(:users).permit(
             :name,
-            :email
+            :email,
+            :password
         )
     end
 end
