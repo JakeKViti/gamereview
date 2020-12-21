@@ -1,0 +1,20 @@
+<%= form_for @review do |f| %>
+  <%= f.label :title %>
+  <br>
+  <%= f.text_field :title%><br>
+
+  <%= f.label :body %>
+  <br>
+  <%= f.text_field :body%><br>
+
+  <%= f.label :rating %>
+   <br>
+   <%= f.number_field :rating%><br>
+
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+  <%= submit_tag "Create Review" %>
+<% end %>
+
+
+
