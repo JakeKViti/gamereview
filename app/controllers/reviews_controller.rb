@@ -14,7 +14,7 @@ class ReviewsController < ApplicationController
     
       def create
         review = Review.create(review_params)
-        redirect_to review_path(review)
+        redirect_to reviews_path
       end
     
       def edit
@@ -32,7 +32,9 @@ class ReviewsController < ApplicationController
           params.require(:review).permit(
             :title,
             :body,
-            :rating
+            :rating,
+            user_id:[],
+            game_id:[]
          )
     end
 end
