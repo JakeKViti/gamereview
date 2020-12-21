@@ -1,1 +1,10 @@
 <h1>Reviews Show</h1>
+
+<%=@review.title %> </br>
+<%=@review.body %> </br>
+<%=@review.rating %> </br>
+<%=@review.user.name %> </br>
+<%=@review.game.title %> </br>
+
+<%= link_to 'Review Index', reviews_path %>
+<%= link_to 'Review Edit', [:edit, @review] %>

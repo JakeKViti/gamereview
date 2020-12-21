@@ -1,4 +1,9 @@
 <h1>Reviews Index</h1>
 
+<% @reviews.each do |review| %>
+<%= review.title %> 
+<%= link_to "#{review.title}'s show page", review_path(review)%> </br>
+<%end%>
+
 <%= link_to 'Review New', new_review_path %></br>
 <%= link_to 'Games Index', games_path %>
