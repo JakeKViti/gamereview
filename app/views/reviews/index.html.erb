@@ -1,4 +1,5 @@
 <h1>Reviews Index</h1>
+<p><%= link_to "The current user is #{@cu.name}", user_path(@cu)%></p>
 
 <% @reviews.each do |review| %>
 <%= review.title %> 

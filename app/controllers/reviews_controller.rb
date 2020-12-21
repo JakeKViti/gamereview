@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
     def index
         @reviews = Review.all
+        @cu = current_user
       end
     
       def show
