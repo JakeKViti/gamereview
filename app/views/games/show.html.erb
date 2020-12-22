@@ -4,5 +4,10 @@
 <%=@game.developer %> </br>
 <%=@game.age %> </br>
 
+<% @game.reviews.each do |review| %>
+    <%= link_to review.title, game_review_path(@game, review)%>
+    <%=" (#{review.rating}/100) written by #{review.user.name}" %> </br>
+<%end%>
+
 <%= link_to 'Games Index', games_path %>
 <%= link_to 'Games Edit', [:edit, @game] %>

@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   resources :reviews
-  resources :games
-  resources :users , only: [:show] do
+  resources :games do
+    resources :reviews
+  end
+  resources :users , only: [:show, :new] do
     resources :reviews
   end
 
