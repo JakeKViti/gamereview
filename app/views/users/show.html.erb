@@ -3,7 +3,11 @@
 <%=@user.password_digest %> </br>
 <%=@user.email %> </br>
 
-
+<% @reviews.each do |review| %>
+<%= "#{review.game.title}:" %> 
+<b><%= link_to "#{review.title} (#{review.rating}/100)", review_path(review)%> </b>
+<%= "Rated by #{review.user.name}" %> </br>
+<%end%>
 
 <%= link_to 'Games Index', games_path %>
 <%= link_to 'Review Index', reviews_path %>
