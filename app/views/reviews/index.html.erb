@@ -2,8 +2,9 @@
 <p><%= link_to "The current user is #{@cu.name}", user_path(@cu)%></p>
 
 <% @reviews.each do |review| %>
-<%= review.title %> 
-<%= link_to "#{review.title}'s show page", review_path(review)%> </br>
+<%= "#{review.game.title}:" %> 
+<b><%= link_to "#{review.title} (#{review.rating}/100)", review_path(review)%> </b>
+<%= "Rated by #{review.user.name}" %> </br>
 <%end%>
 
 <%= link_to 'Review New', new_review_path %></br>

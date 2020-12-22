@@ -8,3 +8,4 @@
 
 <%= link_to 'Review Index', reviews_path %>
 <%= link_to 'Review Edit', [:edit, @review] %>
+<%= button_to "Delete", @review, method: :delete %>

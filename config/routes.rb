@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/secret' => 'secrets#show'
 
 
-  #delete '/reviews/:id/', to 'review#delete'
+  delete '/reviews/:id/' => 'review#delete'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
