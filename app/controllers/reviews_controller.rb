@@ -14,8 +14,13 @@ class ReviewsController < ApplicationController
       end
     
       def create
-        review = Review.create(review_params)
+        @review = Review.new(review_params)
+        @review.user = current_user
+        if @review.save
         redirect_to reviews_path
+        else
+          render :new
+        end
       end
     
       def edit
@@ -34,8 +39,8 @@ class ReviewsController < ApplicationController
             :title,
             :body,
             :rating,
-            user_id:[:id],
-            game_id:[:id]
-         )
+            :user_id,
+            :game_id
+           )
     end
 end
