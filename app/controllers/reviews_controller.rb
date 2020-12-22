@@ -14,10 +14,10 @@ class ReviewsController < ApplicationController
       end
     
       def create
-        @review = Review.new(review_params)
-        @review.user = current_user
-        if @review.save
-        redirect_to reviews_path
+        review = Review.new(review_params)
+        review.user = current_user
+        if review.save
+        redirect_to review_path(review)
         else
           render :new
         end
@@ -30,7 +30,12 @@ class ReviewsController < ApplicationController
       def update
         review = Review.find_by(id: params[:id])
         review.update(review_params)
+        binding.pry
+        if review.save
         redirect_to review_path(review)
+        else
+          render :edit
+        end
       end
     
       private
