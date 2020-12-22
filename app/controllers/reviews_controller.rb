@@ -10,6 +10,7 @@ class ReviewsController < ApplicationController
     
       def new
         @review = Review.new
+        @cu = current_user
       end
     
       def create
@@ -33,8 +34,8 @@ class ReviewsController < ApplicationController
             :title,
             :body,
             :rating,
-            user_id:[],
-            game_id:[]
+            user_id:[:id],
+            game_id:[:id]
          )
     end
 end

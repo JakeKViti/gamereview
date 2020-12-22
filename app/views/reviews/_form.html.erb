@@ -11,8 +11,13 @@
    <br>
    <%= f.number_field :rating%><br>
 
-  <%= f.collection_check_boxes :user_id, User.all, :id, :name %><br>
-  <%= f.collection_check_boxes :game_id, Game.all, :id, :title %><br>
+   <% Game.all.each do |game| %>
+  <%= check_box_tag "review[game_id][]", game.id %>
+  <%= game.title %>
+  <br />
+<% end %>
+
+  <%= hidden_field_tag "review[user_id][]", @cu.id%>
 
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
