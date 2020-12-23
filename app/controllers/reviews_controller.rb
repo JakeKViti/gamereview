@@ -30,7 +30,6 @@ class ReviewsController < ApplicationController
       def update
         review = Review.find_by(id: params[:id])
         review.user = current_user
-        binding.pry
         review.update(review_params)
         if review.save
         redirect_to review_path(review)
