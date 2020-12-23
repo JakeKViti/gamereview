@@ -6,7 +6,7 @@
 <% @user.reviews.each do |review| %>
     <%= "#{review.game.title}:" %> 
     <%= link_to review.title, user_review_path(@user, review)%>
-    <%=" (#{review.rating}/100)" %> </br>
+    <%=" (#{review.rating}/100)" %></br>
 <%end%>
 
 <%= link_to 'Games Index', games_path %>
