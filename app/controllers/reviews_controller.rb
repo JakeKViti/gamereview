@@ -9,15 +9,18 @@ class ReviewsController < ApplicationController
       end
     
       def new
+        binding.pry
         @review = Review.new
         @cu = current_user
+        @review.build_game
       end
     
       def create
-        review = Review.new(review_params)
-        review.user = current_user
-        if review.save
-        redirect_to review_path(review)
+        binding.pry
+        @review = Review.new(review_params)
+        @review.user = current_user
+        if @review.save
+        redirect_to review_path(@review)
         else
           render :new
         end
@@ -25,14 +28,15 @@ class ReviewsController < ApplicationController
     
       def edit
         @review = Review.find_by(id: params[:id])
+        @games = Game.all
       end
     
       def update
-        review = Review.find_by(id: params[:id])
-        review.user = current_user
-        review.update(review_params)
-        if review.save
-        redirect_to review_path(review)
+        @review = Review.find_by(id: params[:id])
+        @review.user = current_user
+        @review.update(review_params)
+        if @review.save
+        redirect_to review_path(@review)
         else
           render :edit
         end
@@ -50,7 +54,8 @@ class ReviewsController < ApplicationController
             :body,
             :rating,
             :user_id,
-            :game_id
+            :game_id,
+            game_attributes:[:title, :genre, :developer, :age]
            )
     end
 end

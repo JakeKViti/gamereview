@@ -5,26 +5,26 @@ class GamesController < ApplicationController
       end
     
       def show
-        @game = Game.find_by(id: params[:id])
+        @games = Game.find_by(id: params[:id])
       end
     
       def new
-        @game = Game.new
+        @games = Game.new
       end
     
       def create
-        game = Game.create(game_params)
-        redirect_to game_path(game)
+        @games = Game.create(game_params)
+        redirect_to game_path(@games)
       end
     
       def edit
-        @game = Game.find_by(id: params[:id])
+        @games = Game.find_by(id: params[:id])
       end
     
       def update
-        game = Game.find_by(id: params[:id])
+        @games = Game.find_by(id: params[:id])
         game.update(game_params)
-        redirect_to game_path(game)
+        redirect_to game_path(@games)
       end
     
       private
