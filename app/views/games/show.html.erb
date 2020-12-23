@@ -1,14 +1,14 @@
 <h1>Games Show</h1>
-<%=@game.title %> </br>
-<%=@game.genre %> </br>
-<%=@game.developer %> </br>
-<%=@game.age %> </br>
+<%=@games.title %> </br>
+<%=@games.genre %> </br>
+<%=@games.developer %> </br>
+<%=@games.age %> </br>
 
-<% @game.reviews.each do |review| %>
-    <%= link_to review.title, game_review_path(@game, review)%>
+<% @games.reviews.each do |review| %>
+    <%= link_to review.title, game_review_path(@games, review)%>
     <%=" (#{review.rating}/100) written by #{review.user.name}" %> </br>
 <%end%>
 
-<%= link_to 'Review New', new_game_review_url(@game.id) %>
+<%= link_to 'Review New', new_game_review_url(@games.id) %>
 <%= link_to 'Games Index', games_path %>
-<%= link_to 'Games Edit', [:edit, @game] %>
+<%= link_to 'Games Edit', [:edit, @games] %>

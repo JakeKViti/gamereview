@@ -9,14 +9,12 @@ class ReviewsController < ApplicationController
       end
     
       def new
-        binding.pry
         @review = Review.new
         @cu = current_user
         @review.build_game
       end
     
       def create
-        binding.pry
         @review = Review.new(review_params)
         @review.user = current_user
         if @review.save
