@@ -4,6 +4,8 @@
   <input type=submit value='logout'>
   <% end %> </p>
 
+  <p> Here the the 5 most recent reviews! </p>
+
 <% @reviews.each do |review| %>
 <%= "#{review.game.title}:" %> 
 <b><%= link_to "#{review.title} (#{review.rating}/100)", review_path(review)%> </b>

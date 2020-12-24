@@ -8,5 +8,7 @@ class Review < ApplicationRecord
    # validates :body, presence: true
    # validates :rating, presence: true, numericality: { only_integer: true }, length: { maximum: 100 }
 
-
+   def self.latest
+    all.order('title desc').limit(5)
     end
+end
