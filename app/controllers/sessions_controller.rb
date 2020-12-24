@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
     def new
         @user = User.new
+        flash[:alert] = nil
     end
   
     def create
@@ -10,6 +11,7 @@ class SessionsController < ApplicationController
             session[:name] = params[:name]
             redirect_to user_path(@user)
         else
+            flash[:alert] = "Username or Password is incorrect!"
             render 'new'
         end
     end

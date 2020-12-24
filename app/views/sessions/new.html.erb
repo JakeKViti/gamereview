@@ -1,4 +1,7 @@
 <h1>Sessions New</h1>
+  <% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
   <input name="name" type="text" id="name"> </br>
   <input name="password" type="password" id="password"> </br>
