@@ -11,9 +11,10 @@
    <br>
    <%= f.number_field :rating%><br>
 
+
      <%if params[:game_id] != nil%>
     <%= hidden_field_tag "review[game_id]", params[:game_id]%>
-    <%elsif%>
+    <%elsif @review.game_id != nil%>
     <%= hidden_field_tag "review[game_id]", @review.game_id%>
     <%else%>
     <%= f.fields_for :game, @review.build_game do |g|%>
