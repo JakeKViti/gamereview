@@ -9,5 +9,6 @@
  <hr>
 <% @games.each do |game| %>
 <%= game.title %> 
+
 <%= link_to "#{game.title}'s show page", game_path(game)%> </br>
 <% end %>

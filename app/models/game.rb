@@ -8,4 +8,8 @@ class Game < ApplicationRecord
     validates :genre, presence: true
     validates :developer, presence: true
     validates :age, presence: true
+
+    def self.alphabetized
+        all.order('title asc')
+    end
 end
