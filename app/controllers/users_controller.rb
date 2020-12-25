@@ -4,14 +4,17 @@ class UsersController < ApplicationController
     end
 
     def new
+        flash[:alert] = nil
         @user = User.new
     end
 
     def create
-        if (user = User.create(user_params))
-            session[:user_id] = user.id
-            redirect_to user_path(user)
+        @user = User.create(user_params)
+        if @user.save
+            session[:user_id] = @user.id
+            redirect_to login_path
         else
+            flash[:alert] = "Account was unable to be made!"
             render 'new'
         end
     end
