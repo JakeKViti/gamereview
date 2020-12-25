@@ -6,7 +6,7 @@ class Review < ApplicationRecord
 
     validates :title, presence: true, length: { maximum: 25 }
     validates :body, presence: true
-    validates :rating, presence: true, numericality: { only_integer: true }, length: { maximum: 100 }
+    validates :rating, presence: true, numericality: {less_than: 101, greater_than: -1}
 
    def self.latest
     all.order('created_at desc').limit(5)
