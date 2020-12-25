@@ -1,13 +1,16 @@
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
 <%= form_for @review do |f| %>
-  <%= f.label :title %>
+  <%= f.label :title %> <%=@errortitle%>
   <br>
   <%= f.text_field :title%><br>
 
-  <%= f.label :body %>
+  <%= f.label :body %> <%=@errorbody%>
   <br>
   <%= f.text_field :body%><br>
 
-  <%= f.label :rating %>
+  <%= f.label :rating %> <%=@errorrating%>
    <br>
    <%= f.number_field :rating%><br>
 

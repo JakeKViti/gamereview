@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
         @review = Review.new
         @cu = current_user
         @review.build_game
+        flash[:alert] = nil
       end
     
       def create
@@ -20,6 +21,10 @@ class ReviewsController < ApplicationController
         if @review.save
         redirect_to review_path(@review)
         else
+          @errortitle = @review.errors[:title]
+          @errorbody = @review.errors[:body]
+          @errorrating = @review.errors[:rating]
+          flash[:alert] = "Review was unable to be made!"
           render :new
         end
       end
