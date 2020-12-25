@@ -1,16 +1,17 @@
 <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
   <% end %>
+  <%=@errors%>
 <%= form_for @user do |f| %>
-  <%= f.label :name %> <%=@errorsname%>
+  <%= f.label :name %> 
   <br>
   <%= f.text_field :name%><br>
    
-  <%= f.label :email %> <%=@errorsemail%>
+  <%= f.label :email %> 
   <br>
   <%= f.text_field :email%><br>
   
-  <%= f.label :password %> <%=@errorspass%>  
+  <%= f.label :password %>   
    <br>
    <%= f.password_field :password%><br>
   

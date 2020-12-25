@@ -2,6 +2,7 @@
   <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
   <% end %>
+  <%=@errors%>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
   <input name="name" type="text" id="name"> <%=@errorsname%> </br>
   <input name="password" type="password" id="password"> <%=@errorspass%> </br>

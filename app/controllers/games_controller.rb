@@ -18,10 +18,7 @@ class GamesController < ApplicationController
         if @games.save
         redirect_to game_path(@games)
         else
-          @errortitle = @games.errors[:title]
-          @errorgenre = @games.errors[:genre]
-          @errordev = @games.errors[:developer]
-          @errorage = @games.errors[:age]
+          @errors = @games.errors.full_messages
           flash[:alert] = "Game was unable to be made!"
           render :new
         end
@@ -34,8 +31,14 @@ class GamesController < ApplicationController
       def update
         @games = Game.find_by(id: params[:id])
         game.update(game_params)
+        if @games.save
         redirect_to game_path(@games)
+      else
+        @errors = @games.errors.full_messages
+        flash[:alert] = "Game was unable to be made!"
+        render :edit
       end
+    end
     
       private
         def game_params

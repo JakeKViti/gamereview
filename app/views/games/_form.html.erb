@@ -1,20 +1,23 @@
 <% if flash[:alert] %>
     <div class="alert"><%= flash[:alert] %></div>
   <% end %>
+
+  <%=@errors%>
+
 <%= form_for @games do |f| %>
-  <%= f.label :title %> <%=@errortitle%>
+  <%= f.label :title %> 
   <br>
   <%= f.text_field :title%><br>
 
-  <%= f.label :genre %> <%=@errorgenre%>
+  <%= f.label :genre %> 
   <br>
   <%= f.text_field :genre%><br>
 
-  <%= f.label :developer %> <%=@errordeveloper%>
+  <%= f.label :developer %> 
    <br>
    <%= f.text_field :developer%><br>
 
-   <%= f.label :age, "Age Rating" %> <%=@errorage%>
+   <%= f.label :age, "Age Rating" %> 
    <br>
    <%= f.text_field :age%><br>
 

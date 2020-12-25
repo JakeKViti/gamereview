@@ -21,9 +21,7 @@ class ReviewsController < ApplicationController
         if @review.save
         redirect_to review_path(@review)
         else
-          @errortitle = @review.errors[:title]
-          @errorbody = @review.errors[:body]
-          @errorrating = @review.errors[:rating]
+          @errors = @review.errors.full_messages
           flash[:alert] = "Review was unable to be made!"
           render :new
         end
@@ -41,6 +39,8 @@ class ReviewsController < ApplicationController
         if @review.save
         redirect_to review_path(@review)
         else
+          @errors = @review.errors.full_messages
+          flash[:alert] = "Review was unable to be made!"
           render :edit
         end
       end
