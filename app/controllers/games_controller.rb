@@ -10,12 +10,21 @@ class GamesController < ApplicationController
     
       def new
         @games = Game.new
+        flash[:alert] = nil
       end
     
       def create
         @games = Game.create(game_params)
-        
+        if @games.save
         redirect_to game_path(@games)
+        else
+          @errortitle = @games.errors[:title]
+          @errorgenre = @games.errors[:genre]
+          @errordev = @games.errors[:developer]
+          @errorage = @games.errors[:age]
+          flash[:alert] = "Game was unable to be made!"
+          render :new
+        end
       end
     
       def edit
