@@ -17,14 +17,15 @@ class SessionsController < ApplicationController
     end
 
     def acreate
-        user = User.find_or_create_by(name: request.env['name'], email: request.env['email']) do |u|
+        @user = User.find_or_create_by(name: auth['info']['name'], email: auth['info']['email']) do |u|  
             u.name = auth['info']['name']
             u.email = auth['info']['email']
             u.password = 'asdfasdfasfsdafasdfasfgdafghertghiergoewrhngoerifgbhowpfbhnaewfiphbew'
           end
-          user.save
-          session[:user_id] = user.id
-          redirect_to user_path(user)
+          session[:user_id] = @user.id
+          session[:name] = @user.name
+          @user.save
+          redirect_to user_path(@user)
     end
 
    
