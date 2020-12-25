@@ -3,7 +3,7 @@
     <div class="alert"><%= flash[:alert] %></div>
   <% end %>
 <%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <input name="name" type="text" id="name"> </br>
-  <input name="password" type="password" id="password"> </br>
+  <input name="name" type="text" id="name"> <%=@errorsname%> </br>
+  <input name="password" type="password" id="password"> <%=@errorspass%> </br>
   <input type="submit" value='login'>
 <% end %>

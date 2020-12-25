@@ -14,6 +14,9 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to login_path
         else
+            @errorsname = @user.errors[:name]
+            @errorspass = @user.errors[:password]
+            @errorsemail = @user.errors[:email]
             flash[:alert] = "Account was unable to be made!"
             render 'new'
         end
