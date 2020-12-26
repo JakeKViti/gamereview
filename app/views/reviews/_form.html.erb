@@ -2,8 +2,12 @@
     <div class="alert"><%= flash[:alert] %></div>
   <% end %>
   
-  <%=@errors%>
-
+  <%if @errors%>
+<% @errors.each do |msg| %>
+      <li><%= msg %></li>
+<%end%>
+<%end%>
+ </br>
 <%= form_for @review do |f| %>
   <%= f.label :title %> 
   <br>
