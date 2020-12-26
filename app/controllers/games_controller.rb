@@ -13,13 +13,13 @@ class GamesController < ApplicationController
     
       def new
         @games = Game.new
-        flash[:alert] = nil
+        @errors = []
       end
     
       def create
         @games = Game.create(game_params)
         if @games.save
-        redirect_to game_path(@games)
+        redirect_to game_path(@games), warning: "Game was Created!"
         else
           @errors = @games.errors.full_messages
           flash[:alert] = "Game was unable to be made!"
@@ -28,12 +28,13 @@ class GamesController < ApplicationController
       end
     
       def edit
+        @errors = []
       end
     
       def update
-        @game.update(game_params)
+        @games.update(game_params)
         if @games.save
-        redirect_to game_path(@games)
+        redirect_to game_path(@games), warning: "Game was Updated!"
       else
         @errors = @games.errors.full_messages
         flash[:alert] = "Game was unable to be made!"

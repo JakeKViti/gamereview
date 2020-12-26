@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    add_flash_types :info, :error, :warning
     
     def current_user
         User.find_by(id: session[:user_id])
@@ -6,8 +7,7 @@ class ApplicationController < ActionController::Base
 
     def require_login
         if !session[:user_id]
-            @flash[:error] = "You must be logged in to access this section"
-            redirect_to root_path # halts request cycle
+            redirect_to root_path, error: "You must be logged in!" 
         end
     end
 
