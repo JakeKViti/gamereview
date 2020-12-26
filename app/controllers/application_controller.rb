@@ -5,8 +5,8 @@ class ApplicationController < ActionController::Base
     end
 
     def require_login
-        if !current_user
-            flash[:error] = "You must be logged in to access this section"
+        if !session[:user_id]
+            @flash[:error] = "You must be logged in to access this section"
             redirect_to root_path # halts request cycle
         end
     end
@@ -21,6 +21,10 @@ class ApplicationController < ActionController::Base
 
     def find_review
         @review = Review.find_by(id: params[:id])
+    end
+
+    def admin?
+        current_user.name == "Admin"
     end
       
 end

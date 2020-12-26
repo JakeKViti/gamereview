@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :require_login
   before_action :find_review
+  before_action :admin?
 
     def index
         @reviews = Review.all.latest

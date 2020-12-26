@@ -24,13 +24,11 @@ class SessionsController < ApplicationController
           end
           session[:user_id] = @user.id
           session[:name] = @user.name
+          binding.pry 
           @user.save
           redirect_to user_path(@user)
     end
 
-   
-
-  
     def destroy
       session.delete :name
       session.delete :user_id
