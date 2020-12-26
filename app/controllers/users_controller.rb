@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
     before_action :require_login, only: [:show]
+    before_action :find_user
 
     def index
         @users = User.all
@@ -23,7 +24,6 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find_by(id: params[:id])
         @reviews = User.find_by(id: params[:id]).reviews
     end
 

@@ -1,13 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :require_login
-  
+  before_action :find_review
+
     def index
         @reviews = Review.all.latest
         @cu = current_user
       end
     
       def show
-        @review = Review.find_by(id: params[:id])
       end
     
       def new
@@ -30,12 +30,10 @@ class ReviewsController < ApplicationController
       end
     
       def edit
-        @review = Review.find_by(id: params[:id])
         @games = Game.all
       end
     
       def update
-        @review = Review.find_by(id: params[:id])
         @review.user = current_user
         @review.update(review_params)
         if @review.save

@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
   before_action :require_login
+  before_action :find_game
 
     def index
         @games = Game.all.alphabetized
@@ -7,7 +8,6 @@ class GamesController < ApplicationController
       end
     
       def show
-        @games = Game.find_by(id: params[:id])
       end
     
       def new
@@ -27,12 +27,10 @@ class GamesController < ApplicationController
       end
     
       def edit
-        @games = Game.find_by(id: params[:id])
       end
     
       def update
-        @games = Game.find_by(id: params[:id])
-        game.update(game_params)
+        @game.update(game_params)
         if @games.save
         redirect_to game_path(@games)
       else

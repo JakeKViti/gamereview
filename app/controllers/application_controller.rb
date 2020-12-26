@@ -11,7 +11,17 @@ class ApplicationController < ActionController::Base
         end
     end
 
-    
+    def find_user
+        @user = User.find_by(id: params[:id])
+    end
+
+    def find_game
+        @games = Game.find_by(id: params[:id])
+    end
+
+    def find_review
+        @review = Review.find_by(id: params[:id])
+    end
       
 end
 
