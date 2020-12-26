@@ -1,4 +1,6 @@
 class GamesController < ApplicationController
+  before_action :require_login
+
     def index
         @games = Game.all.alphabetized
         @cu = current_user

@@ -1,4 +1,6 @@
 class ReviewsController < ApplicationController
+  before_action :require_login
+  
     def index
         @reviews = Review.all.latest
         @cu = current_user
