@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
     def require_login
         if !session[:user_id]
-            redirect_to root_path, error: "You must be logged in!" 
+            redirect_to root_path, warning: "You must be logged in!" 
         end
     end
 
