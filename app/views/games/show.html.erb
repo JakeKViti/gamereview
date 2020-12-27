@@ -12,4 +12,4 @@
 
 <%= link_to 'Review New', new_game_review_url(@games.id) %>
 <%= link_to 'Games Index', games_path %>
-<%= link_to 'Games Edit', [:edit, @games] %>
+<%=admin_perms_edit_game%>

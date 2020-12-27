@@ -3,9 +3,9 @@
 <p><%= link_to "The current user is #{@cu.name}", user_path(@cu)%></p>
 <h1>Hi, <%= session[:name] %>.</h1>
 <%= button_to "Log Out", logout_path, method: :post%> 
-<%= link_to 'Games New', new_game_path %></br>
 <%= link_to 'User New', new_user_path %></br>
 <%= link_to 'Review Index', reviews_path %> </br>
+<%=admin_perms_new_game%>
 
  <hr>
 <% @games.each do |game| %>
