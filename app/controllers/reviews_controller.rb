@@ -15,7 +15,6 @@ class ReviewsController < ApplicationController
         @review = Review.new
         @cu = current_user
         @review.build_game
-        flash[:alert] = nil
       end
     
       def create

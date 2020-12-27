@@ -1,4 +1,5 @@
 <h1>Games Index</h1>
+<h1> <%= warning %> </h1>
 <p><%= link_to "The current user is #{@cu.name}", user_path(@cu)%></p>
 <h1>Hi, <%= session[:name] %>.</h1>
 <%= button_to "Log Out", logout_path, method: :post%> 

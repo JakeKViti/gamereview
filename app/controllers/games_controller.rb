@@ -12,8 +12,13 @@ class GamesController < ApplicationController
       end
     
       def new
+        if admin?
         @games = Game.new
         @errors = []
+        else
+          redirect_to games_path, warning: "Only the admin may enter this page!"
+        end
+
       end
     
       def create
@@ -28,7 +33,11 @@ class GamesController < ApplicationController
       end
     
       def edit
+        if admin?
         @errors = []
+        else
+        redirect_to games_path, warning: "Only the admin may enter this page!"
+        end
       end
     
       def update
