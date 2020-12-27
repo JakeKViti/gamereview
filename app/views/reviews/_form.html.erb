@@ -21,12 +21,9 @@
    <br>
    <%= f.number_field :rating%><br>
 
+    <%= hidden_field_tag "review[game_id]", new_or_update?%>
 
-     <%if params[:game_id] != nil%>
-    <%= hidden_field_tag "review[game_id]", params[:game_id]%>
-    <%elsif @review.game_id != nil%>
-    <%= hidden_field_tag "review[game_id]", @review.game_id%>
-    <%else%>
+  <% if new_game?%>
     <%= f.fields_for :game, @review.build_game do |g|%>
     <%= g.hidden_field :id%><br>
     <%= g.label :title %>
@@ -37,7 +34,7 @@
     <%= g.text_field :developer%><br>
     <%= g.label :age, "Age Rating" %>
    <%= g.text_field :age%><br>
-  <%end%>
+<%end%>
 <%end%>
 
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
