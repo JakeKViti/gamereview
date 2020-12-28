@@ -26,6 +26,10 @@ class ApplicationController < ActionController::Base
     def admin?
         current_user.name == "Admin"
     end
+
+    def owner?
+        current_user.id == @review.user_id
+    end
       
 end
 

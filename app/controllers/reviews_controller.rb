@@ -2,6 +2,7 @@ class ReviewsController < ApplicationController
   before_action :require_login
   before_action :find_review
   before_action :admin?
+  before_action :owner?, only: [:edit]
 
     def index
         @reviews = Review.all.latest
@@ -30,7 +31,11 @@ class ReviewsController < ApplicationController
       end
     
       def edit
+        if owner?
         @games = Game.all
+        else
+          redirect_to reviews_path, warning: "Only the orignial review writter may enter this page!"
+        end
       end
     
       def update
