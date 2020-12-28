@@ -15,7 +15,8 @@
 
 <% @games.reviews.each do |review| %>
  <p  align=center>   <%= link_to review.title, game_review_path(@games, review)%>
-    <%=" (#{review.rating}/100) written by #{review.user.name}" %> </br>
+    <%=" (#{review.rating}/100) written by " %>
+    <%=link_to "#{review.user.name}", user_path(review.user_id)%> </br>
 <%end%>
 
 
