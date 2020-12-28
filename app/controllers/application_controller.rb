@@ -30,6 +30,10 @@ class ApplicationController < ActionController::Base
     def owner?
         current_user.id == @review.user_id
     end
+
+    def clear_errors
+        @errors = []
+    end
       
 end
 

@@ -1,10 +1,11 @@
-<% if flash[:alert] %>
-    <div class="alert"><%= flash[:alert] %></div>
-  <% end %>
+
+<%= flash[:alert] %>
    
 <% @errors.each do |msg| %>
       <li><%= msg %></li>
 <%end%>
+
+</br>
 
 <%= form_for @games do |f| %>
   <%= f.label :title %> 
