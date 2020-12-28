@@ -1,15 +1,21 @@
-<h1>Games Show</h1>
-<h1> <%= warning %> </h1>
-<%=@games.title %> </br>
-<%=@games.genre %> </br>
-<%=@games.developer %> </br>
-<%=@games.age %> </br>
+<h3 align=right><%= link_to 'Games', games_path %> &emsp;
+<%= link_to 'Reviews', reviews_path %> &emsp;
+<%= link_to session[:name], user_path(session[:user_id])%>
+<%= button_to "Log Out", logout_path, method: :post%><h3>
+<hr>
+
+<h1 align=center> <bold> <%=@games.title %> </h1> </bold>
+<h1 align=center> <%= warning %> </h1>
+<p align=center> This is a <%=@games.genre %> </p>
+<p align=center> Developed by <%=@games.developer %> </p>
+<p align=center> It has been rated <%=@games.age %> </p>
+
+<p align=center> Write a new review <%= link_to 'Here!', new_game_review_url(@games.id) %>
 
 <% @games.reviews.each do |review| %>
-    <%= link_to review.title, game_review_path(@games, review)%>
+ <p  align=center>   <%= link_to review.title, game_review_path(@games, review)%>
     <%=" (#{review.rating}/100) written by #{review.user.name}" %> </br>
 <%end%>
 
-<%= link_to 'Review New', new_game_review_url(@games.id) %>
-<%= link_to 'Games Index', games_path %>
-<%=admin_perms_edit_game%>
+
+
