@@ -1,13 +1,15 @@
-<h1>Games Index</h1>
+<h3 align=right><%= link_to "#{session[:name]}'s Reviews", user_path(session[:user_id])%>
+<%= button_to "Log Out", logout_path, method: :post%><h3>
+<hr>
 <h1> <%= warning %> </h1>
-<p><%= link_to "The current user is #{@cu.name}", user_path(@cu)%></p>
-<h1>Hi, <%= session[:name] %>.</h1>
-<%= button_to "Log Out", logout_path, method: :post%> 
-<%= link_to 'User New', new_user_path %></br>
-<%= link_to 'Review Index', reviews_path %> </br>
-<%=admin_perms_new_game%>
+
+
+
+<p align=center> Click here to look at the <%= link_to 'Review', reviews_path %> </br> </p>
+
 
  <hr>
+ <%=admin_perms_new_game%> </br>
 <% @games.each do |game| %>
 <%= game.title %> 
 
