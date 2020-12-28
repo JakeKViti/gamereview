@@ -1,8 +1,12 @@
-<h1>Users Show</h1>
+<h3 align=right><%= link_to 'Games', games_path %> &emsp;
+<%= link_to 'Reviews', reviews_path %> &emsp;
+<%= link_to session[:name], user_path(session[:user_id])%>
+<%= button_to "Log Out", logout_path, method: :post%> </h3>
+<hr>
+<center>
 <h1> <%= warning %> </h1>
-<%=@user.name%> </br>
-<%=@user.password_digest %> </br>
-<%=@user.email %> </br>
+<p>This is <%=@user.name%>'s page</p> 
+<p>If you disagree with them, let them know here <%=@user.email %> <p> </br>
 
 <% @user.reviews.each do |review| %>
     <%= "#{review.game.title}:" %> 
@@ -10,5 +14,3 @@
     <%=" (#{review.rating}/100)" %></br>
 <%end%>
 
-<%= link_to 'Games Index', games_path %>
-<%= link_to 'Review Index', reviews_path %>

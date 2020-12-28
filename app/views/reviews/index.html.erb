@@ -1,9 +1,14 @@
-<h1>Reviews Index</h1>
+<h3 align=right><%= link_to 'Games', games_path %> &emsp;
+<%= link_to 'Reviews', reviews_path %> &emsp;
+<%= link_to session[:name], user_path(session[:user_id])%>
+<%= button_to "Log Out", logout_path, method: :post%> </h3>
+<hr>
+
+<center>
+
 <h1> <%= warning %> </h1>
-<p><%= link_to "The current user is #{@cu.name}", user_path(@cu)%></p>
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-  <input type=submit value='logout'>
-  <% end %> </p>
+
+<p> If you want to make a new review <%= link_to 'Click Here!', new_review_path %></p>
 
   <p> Here the the 5 most recent reviews! </p>
 
@@ -13,5 +18,4 @@
 <%= "Rated by #{review.user.name}" %> </br>
 <%end%>
 
-<%= link_to 'Review New', new_review_path %></br>
-<%= link_to 'Games Index', games_path %>
+
