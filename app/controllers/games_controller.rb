@@ -16,7 +16,7 @@ class GamesController < ApplicationController
         @games = Game.new
         @errors = []
         else
-          redirect_to games_path, warning: "Only the admin may enter this page!"
+          redirect_to games_path, info: "Only the admin may enter this page!"
         end
 
       end
@@ -24,7 +24,7 @@ class GamesController < ApplicationController
       def create
         @games = Game.create(game_params)
         if @games.save
-        redirect_to game_path(@games), warning: "Game was Created!"
+        redirect_to game_path(@games), info: "Game was Created!"
         else
           @errors = @games.errors.full_messages
           flash[:alert] = "Game was unable to be made!"
@@ -36,14 +36,14 @@ class GamesController < ApplicationController
         if admin?
         @errors = []
         else
-        redirect_to games_path, warning: "Only the admin may enter this page!"
+        redirect_to games_path, info: "Only the admin may enter this page!"
         end
       end
     
       def update
         @games.update(game_params)
         if @games.save
-        redirect_to game_path(@games), warning: "Game was Updated!"
+        redirect_to game_path(@games), info: "Game was Updated!"
       else
         @errors = @games.errors.full_messages
         flash[:alert] = "Game was unable to be made!"

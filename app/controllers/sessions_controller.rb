@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
         if @user&& @user.authenticate(params[:password])
             session[:user_id] = @user.id
             session[:name] = params[:name]
-            redirect_to user_path(@user), warning: "Welcome!"
+            redirect_to user_path(@user), info: "Welcome!"
         else
             flash[:alert] = "Username or Password is incorrect!"
             render 'new'
@@ -24,15 +24,14 @@ class SessionsController < ApplicationController
           end
           session[:user_id] = @user.id
           session[:name] = @user.name
-          binding.pry 
           @user.save
-          redirect_to user_path(@user), warning: "Welcome!"
+          redirect_to user_path(@user), info: "Welcome!"
     end
 
     def destroy
       session.delete :name
       session.delete :user_id
-      redirect_to root_path, warning: "Goodbye!"
+      redirect_to root_path, info: "Goodbye!"
     end
   end
 

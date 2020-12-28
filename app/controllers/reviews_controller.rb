@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
         @review = Review.new(review_params)
         @review.user = current_user
         if @review.save
-        redirect_to review_path(@review), warning: "Review was Created!"
+        redirect_to review_path(@review), info: "Review was Created!"
         else
           @errors = @review.errors.full_messages
           flash[:alert] = "Review was unable to be made!"
@@ -34,7 +34,7 @@ class ReviewsController < ApplicationController
         if owner?
         @games = Game.all
         else
-          redirect_to reviews_path, warning: "Only the orignial review writter may enter this page!"
+          redirect_to reviews_path, info: "Only the orignial review writter may enter this page!"
         end
       end
     
@@ -42,7 +42,7 @@ class ReviewsController < ApplicationController
         @review.user = current_user
         @review.update(review_params)
         if @review.save
-        redirect_to review_path(@review), warning: "Review was saved!"
+        redirect_to review_path(@review), info: "Review was saved!"
         else
           @errors = @review.errors.full_messages
           flash[:alert] = "Review was unable to be made!"
@@ -52,7 +52,7 @@ class ReviewsController < ApplicationController
 
     def destroy
       Review.find(params[:id]).destroy
-      redirect_to reviews_path, warning: "Review was deleted!"
+      redirect_to reviews_path, info: "Review was deleted!"
      end
     
       private
