@@ -1,11 +1,16 @@
-<h1>Reviews Show</h1>
-<h1> <%= warning %> </h1>
-<%=@review.title %> </br>
-<%=@review.body %> </br>
-<%=@review.rating %> </br>
-<%=@review.user.name %> </br>
-<%=@review.game.title %> </br>
+<h3 align=right><%= link_to 'Games', games_path %> &emsp;
+<%= link_to 'Reviews', reviews_path %> &emsp;
+<%= link_to session[:name], user_path(session[:user_id])%>
+<%= button_to "Log Out", logout_path, method: :post%><h3>
+<hr>
 
-<%= link_to 'Review Index', reviews_path %>
-<%= link_to 'Review Edit', [:edit, @review] %>
-<%= button_to "Delete", @review, method: :delete %>
+<h1> <%= warning %> </h1>
+
+<p align=center> <%=@review.user.name %>'s review for <%=@review.game.title %> </p>
+<h1 align=center> <%=@review.title %> </h1>
+<%=@review.body %> </br>
+<p> <i> <%=@review.rating %> out of 100 </i> </p>
+
+
+<%= review_edit_owner? %>
+<%= review_delete_owner? %>
