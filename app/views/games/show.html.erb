@@ -10,7 +10,8 @@
 <p align=center> Developed by <%=@games.developer %> </p>
 <p align=center> It is rated <%=@games.age %> </p>
 
-<p align=center> Write a new review <%= link_to 'Here!', new_game_review_url(@games.id) %>
+<p align=center> Write a new review <%= link_to 'Here!', new_game_review_url(@games.id) %> </br>
+<%=admin_perms_edit_game%> 
 
 <% @games.reviews.each do |review| %>
  <p  align=center>   <%= link_to review.title, game_review_path(@games, review)%>

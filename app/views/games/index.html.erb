@@ -7,13 +7,12 @@
 
 
 
-<p align=center> Click here to look at the <%= link_to 'Review', reviews_path %> </br> </p>
-
+<p align=center> Click here to look at the <%= link_to 'Review', reviews_path %> </br> 
+ <%=admin_perms_new_game%>  </p>
 
  <hr>
- <%=admin_perms_new_game%> </br>
+</br>
 <% @games.each do |game| %>
-<%= game.title %> 
 
-<%= link_to "#{game.title}'s show page", game_path(game)%> </br>
+<%= link_to "#{game.title}", game_path(game)%> </br>
 <% end %>
