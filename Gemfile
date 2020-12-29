@@ -59,5 +59,6 @@ gem 'shutup'
 
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
 gem 'dotenv-rails'
