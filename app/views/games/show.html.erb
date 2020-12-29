@@ -9,6 +9,7 @@
 <p align=center> This is a <%=@games.genre %> </p>
 <p align=center> Developed by <%=@games.developer %> </p>
 <p align=center> It is rated <%=@games.age %> </p>
+<p align=center> The game was released in <%=@games.year_released %> </p>
 
 <p align=center> Write a new review <%= link_to 'Here!', new_game_review_url(@games.id) %> </br>
 <%=admin_perms_edit_game%> 

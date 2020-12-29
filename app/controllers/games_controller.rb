@@ -56,7 +56,8 @@ class GamesController < ApplicationController
             :title,
             :genre,
             :developer,
-            :age
+            :age,
+            :year_released
          )
     end
 end

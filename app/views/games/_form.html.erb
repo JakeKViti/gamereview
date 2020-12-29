@@ -24,6 +24,10 @@
    <br>
    <%= f.text_field :age%><br>
 
+   <%= f.label :year_released, "Release Year" %> 
+   <br>
+   <%= f.number_field :year_released%><br>
+
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
 
   <%= submit_tag "Submit Game" %>

@@ -62,7 +62,7 @@ class ReviewsController < ApplicationController
             :rating,
             :user_id,
             :game_id,
-            game_attributes:[:title, :genre, :developer, :age]
+            game_attributes:[:title, :genre, :developer, :age, :year_released]
            )
     end
 end
