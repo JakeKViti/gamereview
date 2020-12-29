@@ -7,7 +7,6 @@ class ReviewsController < ApplicationController
 
     def index
         @reviews = Review.all.latest
-        @cu = current_user
       end
     
       def show
@@ -15,7 +14,6 @@ class ReviewsController < ApplicationController
     
       def new
         @review = Review.new
-        @cu = current_user
         @review.build_game
       end
     
