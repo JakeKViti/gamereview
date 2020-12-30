@@ -20,6 +20,9 @@ class ReviewsController < ApplicationController
       def create
         @review = Review.new(review_params)
         @review.user = current_user
+        if existing_game != nil
+          @review.game = existing_game
+        end
         if @review.save
         redirect_to review_path(@review), info: "Review was Created!"
         else
