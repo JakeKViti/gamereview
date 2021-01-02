@@ -1,15 +1,3 @@
 <h1>Login!</h1>
 <p> Don't have an account? <%= link_to 'Click Here!', new_user_path %>
-  <% if flash[:alert] %>
-    <div class="alert"><%= flash[:alert] %></div>
-  <% end %>
-  <%if @errors%>
-<% @errors.each do |msg| %>
-      <li><%= msg %></li>
-<%end%>
-<%end%>
-<%= form_tag ({controller: 'sessions', action: 'create', method: 'post'}) do %>
-  <input name="name" type="text" id="name"> <%=@errorsname%> </br>
-  <input name="password" type="password" id="password"> <%=@errorspass%> </br>
-  <input type="submit" value='login'>
-<% end %>
+<%= render "form" %>
