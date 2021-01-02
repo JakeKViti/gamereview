@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     before_action :require_login, only: [:show]
     before_action :find_user
+    before_action :clear_errors
 
     def index
         @users = User.all
