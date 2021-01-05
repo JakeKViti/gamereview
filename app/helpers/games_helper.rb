@@ -1,6 +1,5 @@
 module GamesHelper
     def admin_perms_new_game
-        binding.pry
         if session[:name] == "Admin"
             return link_to 'Admin, Create A Game Here', new_game_path 
         end

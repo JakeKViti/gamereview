@@ -15,7 +15,7 @@ module ReviewsHelper
     
     def review_edit_owner?
         if @review.user_id == session[:user_id]
-            return link_to 'Review Edit', [:edit, @review] 
+            return link_to 'Edit This Review?', [:edit, @review] 
         end
     end
 

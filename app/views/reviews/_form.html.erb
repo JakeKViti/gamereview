@@ -1,45 +1,34 @@
-
 <%= flash[:alert] %>
 
-  
 <% @errors.each do |msg| %>
       <li><%= msg %></li>
 <%end%>
+</br>
 
- </br>
 <%= form_for @review do |f| %>
   <%= f.label :title %> 
-  <br>
   <%= f.text_field :title%><br>
-
   <%= f.label :body %> 
-  <br>
   <%= f.text_field :body%><br>
-
   <%= f.label :rating %> 
-   <br>
-   <%= f.number_field :rating%><br>
-
-    <%= hidden_field_tag "review[game_id]", new_or_update?%>
-
+  <%= f.number_field :rating%><br>
+  <%= hidden_field_tag "review[game_id]", new_or_update?%>
   <% if new_game?%>
     <%= f.fields_for :game, @review.build_game do |g|%>
-    <%= g.hidden_field :id%><br>
-    <%= g.label :title %>
-    <%= g.text_field :title%><br>
-    <%= g.label :genre %>
-    <%= g.text_field :genre%><br>
-    <%= g.label :developer %>
-    <%= g.text_field :developer%><br>
-    <%= g.label :age, "Age Rating" %>
-    <%= g.text_field :age%><br>
-    <%= g.label :year_released, "Release Year" %> 
-    <%= g.number_field :year_released%><br>
-<%end%>
-<%end%>
-
+      <%= g.hidden_field :id%><br>
+      <%= g.label :title %>
+      <%= g.text_field :title%><br>
+      <%= g.label :genre %>
+      <%= g.text_field :genre%><br>
+      <%= g.label :developer %>
+      <%= g.text_field :developer%><br>
+      <%= g.label :age, "Age Rating" %>
+      <%= g.text_field :age%><br>
+      <%= g.label :year_released, "Release Year" %> 
+      <%= g.number_field :year_released%><br>
+    <%end%>
+  <%end%>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
   <%= submit_tag "Submit Review" %>
 <% end %>
 
