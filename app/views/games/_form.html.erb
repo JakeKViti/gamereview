@@ -1,4 +1,3 @@
-
 <%= flash[:alert] %>
    
 <% @errors.each do |msg| %>
@@ -9,26 +8,15 @@
 
 <%= form_for @games do |f| %>
   <%= f.label :title %> 
-  <br>
   <%= f.text_field :title%><br>
-
-  <%= f.label :genre %> 
-  <br>
+  <%= f.label :genre %>
   <%= f.text_field :genre%><br>
-
-  <%= f.label :developer %> 
-   <br>
-   <%= f.text_field :developer%><br>
-
-   <%= f.label :age, "Age Rating" %> 
-   <br>
-   <%= f.text_field :age%><br>
-
-   <%= f.label :year_released, "Release Year" %> 
-   <br>
-   <%= f.number_field :year_released%><br>
-
+  <%= f.label :developer %>
+  <%= f.text_field :developer%><br>
+  <%= f.label :age, "Age Rating" %>
+  <%= f.text_field :age%><br>
+  <%= f.label :year_released, "Release Year" %> 
+  <%= f.number_field :year_released%><br>
   <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-
   <%= submit_tag "Submit Game" %>
 <% end %>

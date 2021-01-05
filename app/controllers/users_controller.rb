@@ -8,7 +8,6 @@ class UsersController < ApplicationController
     end
 
     def new
-        flash[:alert] = nil
         @user = User.new
     end
 

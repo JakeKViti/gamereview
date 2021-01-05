@@ -2,10 +2,13 @@
 <% @errors.each do |msg| %>
       <li><%= msg %></li>
 <%end%>
- <%= form_tag '/login' do %>
-   <%= label_tag :name%>
-   <%= text_field_tag :name %>
-   <%= label_tag :password%>
-   <%= password_field_tag :password%>
-   <%= submit_tag "Login"%>
+
+<%= form_for :user do |f| %>
+  <%= f.label :name %> 
+  <br>
+  <%= f.text_field :name%><br>  
+  <%= f.label :password %>   
+   <br>
+   <%= f.password_field :password%><br>
+   <%=f.submit 'Log in' %>
 <% end %>

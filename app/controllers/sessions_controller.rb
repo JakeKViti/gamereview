@@ -3,18 +3,18 @@ class SessionsController < ApplicationController
 
     def new
         @user = User.new
-        flash[:alert] = nil
     end
   
     def create
-        @user = User.find_by(name: params[:name])
-        if @user&& @user.authenticate(params[:password])
+        @user = User.find_by(name: params[:user][:name])
+        if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
-            session[:name] = params[:name]
+            binding.pry
+            session[:name] = params[:user][:name]
             redirect_to user_path(@user), info: "Welcome!"
         else
-            flash[:alert] = "Username or Password is incorrect!"
-            render 'new'
+          flash[:alert] = "Username or Password is incorrect!"
+          render 'new'
         end
     end
 
