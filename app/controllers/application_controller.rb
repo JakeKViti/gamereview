@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     end
 
     def owner?
-        current_user.id == @review.user_id
+        redirect_to reviews_path, info: "Only the owner may enter this page!" unless current_user.id == @review.user_id
     end
 
     def clear_errors

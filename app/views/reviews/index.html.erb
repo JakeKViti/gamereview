@@ -10,7 +10,7 @@
 
 <p> If you want to make a new review <%= link_to 'Click Here!', new_review_path %></p>
 
-  <p> Here the the 5 most recent reviews! </p>
+  <p> Here the the 10 most recent reviews! </p>
 
 <% @reviews.each do |review| %>
 <%= "#{review.game.title}:" %> 

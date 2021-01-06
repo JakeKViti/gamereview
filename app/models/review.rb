@@ -9,6 +9,6 @@ class Review < ApplicationRecord
     validates :rating, presence: true, numericality: {less_than_or_equal_to: 100, greater_than_or_equal_to: 0}
 
    def self.latest
-    all.order('created_at desc').limit(5)
+    all.order('created_at desc').limit(10)
     end
 end
