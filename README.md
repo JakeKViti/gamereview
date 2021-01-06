@@ -5,7 +5,9 @@ This project is designed to track games, and ratings that users give to them
 ## Installation
 
 Fork and clone this repo
+
 cd into the app gamereview
+
 And then execute $
 
 

@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :require_login
   before_action :find_review
-  before_action :admin?
   before_action :owner?, only: [:edit]
   before_action :clear_errors, only: [:new, :edit]
 

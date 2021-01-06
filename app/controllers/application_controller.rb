@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def admin?
-        current_user.name == "Admin"
+        redirect_to games_path, info: "Only the admin may enter this page!" unless current_user.name == "Admin"
     end
 
     def owner?

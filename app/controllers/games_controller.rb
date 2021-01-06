@@ -1,24 +1,18 @@
 class GamesController < ApplicationController
   before_action :require_login
   before_action :find_game
-  before_action :admin?
+  before_action :admin?, only: [:new, :edit]
   before_action :clear_errors, only: [:new, :edit]
 
     def index
         @games = Game.all.alphabetized
-        @cu = current_user
       end
     
       def show
       end
     
       def new
-        if admin?
         @games = Game.new
-        else
-          redirect_to games_path, info: "Only the admin may enter this page!"
-        end
-
       end
     
       def create
@@ -33,10 +27,7 @@ class GamesController < ApplicationController
       end
     
       def edit
-        if admin?
-        else
-        redirect_to games_path, info: "Only the admin may enter this page!"
-        end
+
       end
     
       def update
