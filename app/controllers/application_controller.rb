@@ -37,7 +37,9 @@ class ApplicationController < ActionController::Base
     end
 
     def existing_game
-        Game.find_by(title: params[:review][:game_attributes][:title], developer: params[:review][:game_attributes][:developer], year_released: params[:review][:game_attributes][:year_released])
+        if params[:review][:game_id] == nil   
+            @review.game = Game.find_by(title: params[:review][:game_attributes][:title], developer: params[:review][:game_attributes][:developer], year_released: params[:review][:game_attributes][:year_released])
+        end
     end
       
 end

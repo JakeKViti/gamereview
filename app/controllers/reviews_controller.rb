@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
   before_action :find_review
   before_action :owner?, only: [:edit]
   before_action :clear_errors, only: [:new, :edit]
+  before_action :existing_game, only: [:create]
 
     def index
         @reviews = Review.all.latest
@@ -19,9 +20,6 @@ class ReviewsController < ApplicationController
       def create
         @review = Review.new(review_params)
         @review.user = current_user
-        if existing_game != nil
-          @review.game = existing_game
-        end
         if @review.save
         redirect_to review_path(@review), info: "Review was Created!"
         else
