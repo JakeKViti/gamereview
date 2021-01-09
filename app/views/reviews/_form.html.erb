@@ -1,8 +1,4 @@
-<%= flash[:alert] %>
-
-<% @errors.each do |msg| %>
-      <li><%= msg %></li>
-<%end%>
+<%= render partial: 'layouts/errors'%>
 </br>
 
 <%= form_for @review do |f| %>

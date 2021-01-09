@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-  before_action :clear_errors
 
     def new
         @user = User.new

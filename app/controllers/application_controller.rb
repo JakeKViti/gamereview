@@ -32,10 +32,6 @@ class ApplicationController < ActionController::Base
         redirect_to reviews_path, info: "Only the owner may enter this page!" unless current_user.id == @review.user_id
     end
 
-    def clear_errors
-        @errors = []
-    end
-
     def existing_game
         if params[:review][:game_id] == nil   
             @review.game = Game.find_by(title: params[:review][:game_attributes][:title], developer: params[:review][:game_attributes][:developer], year_released: params[:review][:game_attributes][:year_released])

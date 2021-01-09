@@ -2,7 +2,6 @@ class GamesController < ApplicationController
   before_action :require_login
   before_action :find_game
   before_action :admin?, only: [:new, :edit]
-  before_action :clear_errors, only: [:new, :edit]
 
     def index
         @games = Game.all.alphabetized

@@ -1,0 +1,8 @@
+<%= flash[:alert] %>
+   
+   <%if @errors != nil%>
+<% @errors.each do |msg| %>
+      <li><%= msg %></li>
+<%end%>
+<%end%>
+
