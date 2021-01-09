@@ -10,5 +10,5 @@
 </br>
 <% @games.each do |game| %>
 
-<%= link_to "#{game.title}", game_path(game)%> </br>
+<%= link_to "#{game.title} (#{game.year_released})", game_path(game)%> </br>
 <% end %>
