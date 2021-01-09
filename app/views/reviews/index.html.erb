@@ -1,21 +1,15 @@
-<h3 align=right><%= link_to 'Games', games_path %> &emsp;
-<%= link_to 'Reviews', reviews_path %> &emsp;
-<%= link_to current_user.name, user_path(current_user)%>
-<%= button_to "Log Out", logout_path, method: :post%> </h3>
-<hr>
 
-<center>
 
-<h1> <%= info %> </h1>
+<h1 align="center"> <%= info %> </h1>
 
-<p> If you want to make a new review <%= link_to 'Click Here!', new_review_path %></p>
+<p align="center">  If you want to make a new review <%= link_to 'Click Here!', new_review_path %></p>
 
-  <p> Here the the 10 most recent reviews! </p>
+  <p align="center"> Here the the 10 most recent reviews! </p>
 
-<% @reviews.each do |review| %>
-<%= "#{review.game.title}:" %> 
+<p align="center"><% @reviews.each do |review| %>
+ <%= "#{review.game.title}:" %> 
 <b><%= link_to "#{review.title} (#{review.rating}/100)", review_path(review)%> </b>
 Rated by <%=link_to "#{review.user.name}", user_path(review.user_id)%> </br>
-<%end%>
+<%end%> </p>
 
 

@@ -1,16 +1,10 @@
-<h3 align=right><%= link_to 'Games', games_path %> &emsp;
-<%= link_to 'Reviews', reviews_path %> &emsp;
-<%= link_to current_user.name, user_path(current_user)%>
-<%= button_to "Log Out", logout_path, method: :post%> </h3>
-<hr>
-<center>
-<h1> <%= info %> </h1>
-<p>This is <%=@user.name%>'s page</p> 
-<p>If you disagree with them, let them know here <%=@user.email %> <p> </br>
+<h1 align="center"> <%= info %> </h1>
+<p align="center">This is <%=@user.name%>'s page</p> 
+<p align="center">If you disagree with them, let them know here <%=@user.email %> <p> </br>
 
-<% @user.reviews.each do |review| %>
+<p align="center"><% @user.reviews.each do |review| %>
     <%= "#{review.game.title}:" %> 
     <%= link_to review.title, user_review_path(@user, review)%>
     <%=" (#{review.rating}/100)" %></br>
-<%end%>
+<%end%></p>
 
