@@ -1,12 +1,8 @@
 
-<h1> <%= info %> </h1>
+<h1 align=center> <%= info %> </h1>
 
+<p align=center> <%=admin_perms_new_game%>  </p>
 
-
-<p align=center> Click here to look at the <%= link_to 'Review', reviews_path %> </br> 
- <%=admin_perms_new_game%>  </p>
-
- <hr>
 </br>
 <% @games.each do |game| %>
 
