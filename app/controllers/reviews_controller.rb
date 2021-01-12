@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   before_action :existing_game, only: [:create]
 
     def index
-        @reviews = Review.all.latest
+        @reviews = Review.latest
       end
     
       def show
@@ -22,8 +22,6 @@ class ReviewsController < ApplicationController
         if @review.save
         redirect_to review_path(@review), info: "Review was Created!"
         else
-          @errors = @review.errors.full_messages
-          flash[:alert] = "Review was unable to be made!"
           render :new
         end
       end
@@ -38,8 +36,6 @@ class ReviewsController < ApplicationController
         if @review.save
         redirect_to review_path(@review), info: "Review was saved!"
         else
-          @errors = @review.errors.full_messages
-          flash[:alert] = "Review was unable to be made!"
           render :edit
         end
       end

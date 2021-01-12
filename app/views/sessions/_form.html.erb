@@ -1,5 +1,4 @@
-<%= render partial: 'layouts/errors'%>
-
+<%= flash[:alert] %>
 <%= form_for :user do |f| %>
   <%= f.label :name %> 
   <%= f.text_field :name%><br>  

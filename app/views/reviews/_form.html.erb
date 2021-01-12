@@ -1,4 +1,5 @@
-<%= render partial: 'layouts/errors'%>
+<%= render partial: "layouts/errors", locals: { object: @review } %>
+
 </br>
 
 <%= form_for @review do |f| %>
@@ -24,8 +25,7 @@
       <%= g.number_field :year_released%><br>
     <%end%>
   <%end%>
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= submit_tag "Submit Review" %>
+  <%= f.submit "Submit Review" %>
 <% end %>
 
 

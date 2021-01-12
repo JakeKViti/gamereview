@@ -1,4 +1,4 @@
-<%= render partial: 'layouts/errors'%>
+<%= render partial: "layouts/errors", locals: { object: @games } %>
 </br>
 
 <%= form_for @games do |f| %>
@@ -12,6 +12,5 @@
   <%= f.text_field :age%><br>
   <%= f.label :year_released, "Release Year" %> 
   <%= f.number_field :year_released%><br>
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= submit_tag "Submit Game" %>
+  <%= f.submit "Submit Game" %>
 <% end %>

@@ -17,8 +17,6 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to login_path
         else
-            @errors = @user.errors.full_messages
-            flash[:alert] = "Account was unable to be made!"
             render 'new'
         end
     end

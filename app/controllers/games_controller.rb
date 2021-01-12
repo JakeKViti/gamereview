@@ -4,7 +4,7 @@ class GamesController < ApplicationController
   before_action :admin?, only: [:new, :edit]
 
     def index
-        @games = Game.all.alphabetized
+        @games = Game.alphabetized
       end
     
       def show
@@ -19,8 +19,6 @@ class GamesController < ApplicationController
         if @games.save
         redirect_to game_path(@games), info: "Game was Created!"
         else
-          @errors = @games.errors.full_messages
-          flash[:alert] = "Game was unable to be made!"
           render :new
         end
       end
@@ -34,12 +32,10 @@ class GamesController < ApplicationController
         if @games.save
         redirect_to game_path(@games), info: "Game was Updated!"
       else
-        @errors = @games.errors.full_messages
-        flash[:alert] = "Game was unable to be made!"
         render :edit
       end
     end
-    
+
       private
         def game_params
           params.require(:game).permit(
