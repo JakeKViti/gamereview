@@ -13,4 +13,5 @@ class Review < ApplicationRecord
    #end
 
     scope :latest, -> { order('created_at desc').limit(10)}
+    scope :top, -> { order('rating desc').limit(1)}
 end

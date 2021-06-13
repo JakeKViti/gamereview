@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+get '/top' => 'reviews#top'
+
   resources :reviews
   resources :games do
     resources :reviews

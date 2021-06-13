@@ -44,6 +44,11 @@ class ReviewsController < ApplicationController
       Review.find(params[:id]).destroy
       redirect_to reviews_path, info: "Review was deleted!"
      end
+
+     def top
+       @review = Review.top.first
+       render :show
+     end
     
       private
         def review_params
