@@ -2,15 +2,6 @@
 
 This project is designed to track games, and ratings that users give to them 
 
-## Installation
-
-Fork and clone this repo
-
-cd into the app gamereview
-
-And then execute $
-
-
 ## Usage
 
 When the website opens you will get 3 options, Sign-up, Login, or Login with Facebook. Signup will let you register with a email, username and password. Then take you to login.
