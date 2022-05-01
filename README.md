@@ -1,7 +1,5 @@
 # gamereview
 
-![Demo Gif](https://github.com/JakeKViti/gamereview/blob/main/app/assets/images/ezgif.com-gif-maker%20(10).gif?raw=true)
-
 This project is designed to track games, and ratings that users give to them 
 
 ## Usage
